@@ -1,6 +1,20 @@
 # Tigre Framework
 Tigre is a modular framework to build web applications using C++ without external dependencies.
 
+## First Step
+ 
+    git clone https://github.com/TigreFramework/Framework
+    cd Framework
+    git submodule update --init --recursive
+    
+## Build
+
+    mkdir build
+    cd build
+    cmake ..
+    make
+    ./index.TigreFramework
+
 ## Apache CGI
 To configure Apache with CGI driver, build the project with the `ApacheServiceProvider` and
 configure the sites-enabled like the example below:
