@@ -40,3 +40,4 @@ The next features to be added soon are listed below, not in any particular order
 - Mysql/MariaDB Driver
 - WebSocket Driver Manager
 - Console Application System
+- Rust Lang Support
