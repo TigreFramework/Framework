@@ -16,8 +16,6 @@ set(SITE_FILES
         config/bootstrap.cpp
         App/Exception/ExceptionHandler.cpp
         App/Providers/AppServiceProvider.cpp
-        vendor/Types/helper.cpp vendor/Types/helper.h
-        vendor/Types/Date.cpp vendor/Types/Date.h
         )
 
 set(SOURCE_FILES main.cpp ${SITE_FILES})
