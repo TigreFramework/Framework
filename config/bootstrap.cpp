@@ -16,5 +16,6 @@ void Bootstrap::boot() {
     ServiceProvider::registerProvider(new ApacheServiceProvider());
     ServiceProvider::registerProvider(new RouterServiceProvider());
 
+    SimpleRouter::get("/", SimpleRouter::bind(&IndexController::index, IndexController::instance));
     SimpleRouter::get("/{id}", SimpleRouter::bind(&IndexController::index, IndexController::instance));
 }
