@@ -1,9 +1,9 @@
 # Tigre Framework
-Tigre is a modular framework to build web application using C++ without external depency. 
+Tigre is a modular framework to build web applications using C++ without external dependencies.
 
 ## Apache CGI
-To configure Apache with CGI driver its simple, you just need to build the project with the `ApacheServiceProvider` and
-configure the sites-enabled like this.
+To configure Apache with CGI driver, build the project with the `ApacheServiceProvider` and
+configure the sites-enabled like the example below:
 
     <VirtualHost *:80>
       ServerAdmin webmaster@localhost
@@ -27,10 +27,10 @@ configure the sites-enabled like this.
     </VirtualHost>
     
 ## NGINX FastCGI
-The NGINX FastCGI was not build yet.
+The NGINX FastCGI is not yet ready.
 
 ## Road Map
-The next features that going to be added soon is listed bellow, note that it's not in order.
+The next features to be added soon are listed below, not in any particular order:
 
 - Database Connection Manager
 - NGINX FastCGI Driver
