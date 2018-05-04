@@ -1,0 +1,24 @@
+[submodule "vendor/trusch/libbcrypt"]
+	path = vendor/trusch/libbcrypt
+	url = https://github.com/trusch/libbcrypt
+[submodule "vendor/nlohmann/json"]
+	path = vendor/nlohmann/json
+	url = https://github.com/nlohmann/json
+[submodule "vendor/TigreFramework/Apache"]
+	path = vendor/TigreFramework/Apache
+	url = https://github.com/TigreFramework/ApacheCGI
+[submodule "vendor/TigreFramework/Core"]
+	path = vendor/TigreFramework/Core
+	url = https://github.com/TigreFramework/Core
+[submodule "vendor/TigreFramework/PostgreSQLConnector"]
+	path = vendor/TigreFramework/PostgreSQLConnector
+	url = https://github.com/TigreFramework/PostgreSQLConnector
+[submodule "vendor/TigreFramework/SimpleRouter"]
+	path = vendor/TigreFramework/SimpleRouter
+	url = https://github.com/TigreFramework/SimpleRouter
+[submodule "vendor/TigreFramework/SQLiteConnector"]
+	path = vendor/TigreFramework/SQLiteConnector
+	url = https://github.com/TigreFramework/SQLiteConnector
+[submodule "vendor/TigreFramework/String"]
+	path = vendor/TigreFramework/String
+	url = https://github.com/TigreFramework/String
