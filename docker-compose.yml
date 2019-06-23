@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  webserver:
+    build: ./
+    volumes:
+      - ./cmake-build-debug/:/usr/local/apache2/htdocs/
+    ports:
+     - '80:80'
+     - '443:443'

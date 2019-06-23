@@ -6,13 +6,13 @@
 #include <typeinfo>
 #include "ExceptionHandler.h"
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCDFAInspection"
 void App::ExceptionHandler::report(Exception &exception) {
     try {
         auto pg = dynamic_cast<PageNotFoundException &>(exception);
         return;
     }catch (std::bad_cast &bad_cast){}
-
-    return;
 }
 
 Response App::ExceptionHandler::render(Exception &exception) {
@@ -25,3 +25,4 @@ Response App::ExceptionHandler::render(Exception &exception) {
     Response response(exception.what(), 500);
     return response;
 }
+#pragma clang diagnostic pop

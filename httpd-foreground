@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+# Apache gets grumpy about PID files pre-existing
+rm -f /usr/local/apache2/logs/httpd.pid
+
+export LD_LIBRARY_PATH=/usr/local/apache2/htdocs/lib/
+
+exec httpd -DFOREGROUND

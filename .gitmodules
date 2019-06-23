@@ -22,3 +22,9 @@
 [submodule "vendor/TigreFramework/String"]
 	path = vendor/TigreFramework/String
 	url = https://github.com/TigreFramework/String
+[submodule "vendor/TigreFramework/Types"]
+	path = vendor/TigreFramework/Types
+	url = https://github.com/TigreFramework/Types
+[submodule "vendor/TigreFramework/Database"]
+	path = vendor/TigreFramework/Database
+	url = https://github.com/TigreFramework/DataBase

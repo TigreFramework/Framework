@@ -13,7 +13,7 @@ class IndexController : public Controller {
 
     public:
         Response index(){
-            return Response({ "Hello", "World" });
+            return Response(nlohmann::json({ {"Hello", "World"} }));
         }
 
 };
