@@ -29,6 +29,12 @@ add_executable(index.TigreFramework ${SOURCE_FILES})
 add_subdirectory(vendor/TigreFramework/Core)
 target_link_libraries(index.TigreFramework tgcore)
 
+add_subdirectory(vendor/TigreFramework/Types)
+target_link_libraries(index.TigreFramework tgTypes)
+
+add_subdirectory(vendor/TigreFramework/Database)
+target_link_libraries(index.TigreFramework tgDatabase)
+
 add_subdirectory(vendor/TigreFramework/PostgreSQLConnector)
 target_link_libraries(index.TigreFramework tgPostgreSQLConnector)
 
