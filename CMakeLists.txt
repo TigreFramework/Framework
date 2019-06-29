@@ -16,6 +16,7 @@ set(SITE_FILES
         config/bootstrap.cpp
         App/Exception/ExceptionHandler.cpp
         App/Providers/AppServiceProvider.cpp
+        App/Http/Controllers/IndexController.h
         )
 
 set(SOURCE_FILES main.cpp ${SITE_FILES})
