@@ -11,7 +11,7 @@ class IndexController : public Controller {
     public:
         Response index(){
             //DataObject conn("pgsql:host=172.18.0.2 port=5432 dbname=postgres", "postgres", "1234");
-            DataObject conn("sqlite:sqlite_database.sqlite", "postgres", "1234");
+            DataObject conn("sqlite:sqlite_database.sqlite");
 
             //auto result = conn.prepare("select * from users;");
             //result->execute();
