@@ -36,15 +36,28 @@ class IndexController : public Controller {
             //result->execute();
             //auto res = result->fetchAll();
 
+            std::string name = "Jhon Due";
+
             conn.beginTransaction();
-            auto a = conn.prepare("insert into users (name, email, password) values (?, ?, ?);");
-            a->execute({"a", "a", "a"});
+
+            auto a = conn.prepare("insert into users (name, email, password) values (:name, :email, :password);");
+            a->bindValue(":name", &name);
+            a->bindValue(":email", "jhon@due.com");
+            a->bindValue(":password", "1234");
+
+            name = "Richard";
+
+            a->execute();
+
+            //auto a = conn.prepare("insert into users (name, email, password) values (?, ?, ?);");
+            //a->execute({"a", "a", "a"});
+
             a->fetchAll();
             //conn.exec("insert into users (name, email, password) values ('b', 'b', 'b');");
             //conn.exec("insert into users (name, email, password) values ('c', 'c', 'c');");
             //conn.exec("delete from users where LENGTH(name) = 1 and name != 'a';");
             //conn.commit();
-            conn.rollBack();
+            //conn.rollBack();
 
             auto result = conn.prepare("select * from users;");
             result->execute();
