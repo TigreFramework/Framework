@@ -10,8 +10,8 @@ class IndexController : public Controller {
 
     public:
         Response index(){
-            DataObject conn("pgsql:host=172.18.0.2 port=5432 dbname=postgres", "postgres", "1234");
-            //DataObject conn("sqlite:sqlite_database.sqlite");
+            //DataObject conn("pgsql:host=172.18.0.2 port=5432 dbname=postgres", "postgres", "1234");
+            DataObject conn("sqlite:sqlite_database.sqlite");
 
             //auto result = conn.prepare("select * from users;");
             //result->execute();
@@ -25,9 +25,10 @@ class IndexController : public Controller {
             //auto result = conn.prepare("select * from users where email = ? and password = ?;");
             //result->execute(std::vector<Value>({"jhon@due.com", "5555"}));
 
+            int res = 0;
 
             //int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS `users` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `email` TEXT, `password` TEXT );)");
-            int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS "users" ( "id" SERIAL PRIMARY KEY, "name" character varying, "email" character varying, "password" character varying );)");
+            //int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS "users" ( "id" SERIAL PRIMARY KEY, "name" character varying, "email" character varying, "password" character varying );)");
             //int res = conn.exec(R"(insert into users (name, email, password) values ("a", "a", "a");)");
             //int res = conn.exec(R"(delete from users where name = "a";)");
 
@@ -38,9 +39,12 @@ class IndexController : public Controller {
             conn.beginTransaction();
             auto a = conn.prepare("insert into users (name, email, password) values (?, ?, ?);");
             a->execute({"a", "a", "a"});
-            conn.exec("insert into users (name, email, password) values ('b', 'b', 'b');");
-            conn.exec("insert into users (name, email, password) values ('c', 'c', 'c');");
-            /*conn.commit();*/
+            a->fetchAll();
+            //conn.exec("insert into users (name, email, password) values ('b', 'b', 'b');");
+            //conn.exec("insert into users (name, email, password) values ('c', 'c', 'c');");
+            //conn.exec("delete from users where LENGTH(name) = 1 and name != 'a';");
+            //conn.commit();
+            conn.rollBack();
 
             auto result = conn.prepare("select * from users;");
             result->execute();

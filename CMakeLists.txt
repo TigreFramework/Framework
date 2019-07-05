@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.4)
 project(TigreFramework)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories(vendor)
@@ -36,8 +37,8 @@ target_link_libraries(index.TigreFramework tgTypes)
 add_subdirectory(vendor/TigreFramework/Database)
 target_link_libraries(index.TigreFramework tgDatabase)
 
-add_subdirectory(vendor/TigreFramework/PostgreSQLConnector)
-target_link_libraries(index.TigreFramework tgPostgreSQLConnector)
+#add_subdirectory(vendor/TigreFramework/PostgreSQLConnector)
+#target_link_libraries(index.TigreFramework tgPostgreSQLConnector)
 
 add_subdirectory(vendor/TigreFramework/SQLiteConnector)
 target_link_libraries(index.TigreFramework tgSQLiteConnector ${CMAKE_THREAD_LIBS_INIT})
