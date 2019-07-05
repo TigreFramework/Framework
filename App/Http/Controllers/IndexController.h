@@ -22,6 +22,9 @@ class IndexController : public Controller {
             //auto result = conn.prepare("select * from users where email = ? or password = ?;");
             //result->execute(std::vector<Value>({"jhon@due.com", "1234"}));
 
+            //auto result = conn.prepare("select * from users where email = ? and password = ?;");
+            //result->execute(std::vector<Value>({"jhon@due.com", "5555"}));
+
 
             //int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS `users` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `email` TEXT, `password` TEXT );)");
             int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS "users" ( "id" SERIAL PRIMARY KEY, "name" character varying, "email" character varying, "password" character varying );)");
