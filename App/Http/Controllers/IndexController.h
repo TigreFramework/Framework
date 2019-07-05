@@ -59,14 +59,20 @@ class IndexController : public Controller {
             //conn.commit();
             //conn.rollBack();
 
+            int value = 0;
+
             auto result = conn.prepare("select * from users;");
+            result->bindColumn(0, &value);
             result->execute();
+            while (!result->fetch().empty()) {
+                std::cerr << value << std::endl;
+            }
 
             return Response(nlohmann::json({
                 res,
                 result->rowCount(), // Not work With SQLite
                 result->fetch(),
-                result->fetchAll(),
+                result->fetchAll()
             }));
         }
 
