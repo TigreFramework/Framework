@@ -37,8 +37,8 @@ target_link_libraries(index.TigreFramework tgTypes)
 add_subdirectory(vendor/TigreFramework/Database)
 target_link_libraries(index.TigreFramework tgDatabase)
 
-#add_subdirectory(vendor/TigreFramework/PostgreSQLConnector)
-#target_link_libraries(index.TigreFramework tgPostgreSQLConnector)
+add_subdirectory(vendor/TigreFramework/PostgreSQLConnector)
+target_link_libraries(index.TigreFramework tgPostgreSQLConnector)
 
 add_subdirectory(vendor/TigreFramework/SQLiteConnector)
 target_link_libraries(index.TigreFramework tgSQLiteConnector ${CMAKE_THREAD_LIBS_INIT})

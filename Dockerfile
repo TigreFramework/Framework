@@ -1,6 +1,6 @@
-FROM httpd:2.4
+FROM httpd:latest
 
-RUN apt-get update && apt-get install -y valgrind gcc g++ cmake inotify-tools
+RUN apt-get update && apt-get install -y valgrind gcc g++ cmake inotify-tools libpq-dev
 
 RUN echo "@.idea" >> /tmp/lixo && \
     echo "@.git" >> /tmp/lixo && \
@@ -16,13 +16,15 @@ RUN echo "mkdir -p /usr/source/cmake-build-debug" >> /usr/local/bin/auto-build &
     echo "done" >> /usr/local/bin/auto-build && \
     chmod 777 /usr/local/bin/auto-build
 
-RUN echo "rm -f /usr/local/apache2/logs/httpd.pid" >> /usr/local/bin/httpd-foreground && \
+RUN echo '#!/bin/sh' > /usr/local/bin/httpd-foreground && \
+    echo "set -e" >> /usr/local/bin/httpd-foreground && \
+    echo "rm -f /usr/local/apache2/logs/httpd.pid" >> /usr/local/bin/httpd-foreground && \
     echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/usr/local/apache2/htdocs/lib/" >> /usr/local/bin/httpd-foreground && \
-    echo "echo 1" >> /usr/local/bin/httpd-foreground && \
     echo "auto-build &" >> /usr/local/bin/httpd-foreground && \
-    echo "echo 2" >> /usr/local/bin/httpd-foreground && \
     echo "httpd -DFOREGROUND" >> /usr/local/bin/httpd-foreground && \
     chmod 777 /usr/local/bin/httpd-foreground
 
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+
+CMD ["httpd-foreground"]

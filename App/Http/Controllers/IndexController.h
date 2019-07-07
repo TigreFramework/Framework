@@ -10,8 +10,8 @@ class IndexController : public Controller {
 
     public:
         Response index(){
-            //DataObject conn("pgsql:host=172.18.0.2 port=5432 dbname=postgres", "postgres", "1234");
-            DataObject conn("sqlite:sqlite_database.sqlite");
+            DataObject conn("pgsql:host=172.18.0.2 port=5432 dbname=postgres", "postgres", "1234");
+            //DataObject conn("sqlite:sqlite_database.sqlite");
 
             //auto result = conn.prepare("select * from users;");
             //result->execute();
@@ -25,10 +25,8 @@ class IndexController : public Controller {
             //auto result = conn.prepare("select * from users where email = ? and password = ?;");
             //result->execute(std::vector<Value>({"jhon@due.com", "5555"}));
 
-            int res = 0;
-
             //int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS `users` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `email` TEXT, `password` TEXT );)");
-            //int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS "users" ( "id" SERIAL PRIMARY KEY, "name" character varying, "email" character varying, "password" character varying );)");
+            int res = conn.exec(R"(CREATE TABLE IF NOT EXISTS "users" ( "id" SERIAL PRIMARY KEY, "name" character varying, "email" character varying, "password" character varying );)");
             //int res = conn.exec(R"(insert into users (name, email, password) values ("a", "a", "a");)");
             //int res = conn.exec(R"(delete from users where name = "a";)");
 
@@ -67,6 +65,9 @@ class IndexController : public Controller {
             while (!result->fetch().empty()) {
                 std::cerr << value << std::endl;
             }
+
+            result = conn.prepare("select * from users;");
+            result->execute();
 
             return Response(nlohmann::json({
                 res,

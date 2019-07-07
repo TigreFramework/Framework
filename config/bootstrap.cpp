@@ -13,7 +13,7 @@ void Bootstrap::boot() {
     ServiceProvider::registerProvider(new AppServiceProvider());
     ServiceProvider::registerProvider(new ApacheServiceProvider());
     ServiceProvider::registerProvider(new RouterServiceProvider());
-    //ServiceProvider::registerProvider(new PostgreSQLServiceProvider());
+    ServiceProvider::registerProvider(new PostgreSQLServiceProvider());
     ServiceProvider::registerProvider(new SQLiteServiceProvider());
 
     SimpleRouter::get("/", SimpleRouter::bind(&IndexController::index, IndexController::instance));
