@@ -1,4 +1,4 @@
-FROM httpd:latest
+FROM httpd:2.4
 
 RUN apt-get update && apt-get install -y valgrind gcc g++ cmake inotify-tools libpq-dev
 
